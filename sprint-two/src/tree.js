@@ -18,24 +18,22 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  // make copy of head
-
+  var found = false;
   var search = function(node) {
-
+    // if found
     if (node.value === target) {
-      return true;
-    } else {
-      node.children.forEach(function(child) {
-        return false || search(child);
-      })
-      //per child
-        // return false or search child
+      // return true
+      found = true;
+      return;
     }
-    // return true
-  // for each item in array
-    // contains(item.children)
+    // for each item in array
+    node.children.forEach(function(child) {
+      // recurse pass in child
+      search(child);
+    })
   }
-  return search(this);
+  search(this);
+  return found;
 };
 
 
@@ -43,3 +41,21 @@ treeMethods.contains = function(target) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+
+// var search = function(node) {
+
+//   if (node.value === target) {
+//     return true;
+//   } else {
+//     node.children.forEach(function(child) {
+//       return false || search(child);
+//     })
+//     //per child
+//       // return false or search child
+//   }
+//   // return true
+// // for each item in array
+//   // contains(item.children)
+// }
+// return search(this);
