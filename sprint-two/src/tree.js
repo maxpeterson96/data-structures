@@ -18,24 +18,37 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-  var found = false;
-  var search = function(node) {
-    // if found
-    if (node.value === target) {
-      // return true
-      found = true;
-      return;
-    }
-    // for each item in array
-    node.children.forEach(function(child) {
-      // recurse pass in child
-      search(child);
+  var contained = this.value === target;
+  if (!contained && this.children.length > 0) {
+    this.children.forEach(function(child) {
+      contained = contained || child.contains(target);
+      if (contained) {
+        return contained;
+      }
     })
   }
-  search(this);
-  return found;
+  return contained;
+
 };
 
+// treeMethods.contains = function(target) {
+//   var found = false;
+//   var search = function(node) {
+//     // if found
+//     if (node.value === target) {
+//       // return true
+//       found = true;
+//       return;
+//     }
+//     // for each item in array
+//     node.children.forEach(function(child) {
+//       // recurse pass in child
+//       search(child);
+//     })
+//   }
+//   search(this);
+//   return found;
+// };
 
 
 /*
