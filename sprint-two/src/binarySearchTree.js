@@ -38,9 +38,8 @@ BinarySearchTree.prototype.contains = function(value) {
     contained = false || this.right.contains(value);
   }
   return typeof contained === 'boolean' ? contained : contained === 0;
-
 };
-//
+
 // bst prototype depthFirstLog accepts callback
 BinarySearchTree.prototype.depthFirstLog = function(callback) {
   callback(this.value);
@@ -53,6 +52,8 @@ BinarySearchTree.prototype.depthFirstLog = function(callback) {
   }
   return;
 };
+
+
 
 
 
