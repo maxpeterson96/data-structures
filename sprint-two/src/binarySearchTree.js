@@ -37,45 +37,12 @@ BinarySearchTree.prototype.contains = function(value) {
   if (contained < 0 && this.right) {
     contained = false || this.right.contains(value);
   }
-  if (typeof contained === 'boolean') {
-    return contained;
-  }
-  return contained === 0;
+  return typeof contained === 'boolean' ? contained : contained === 0;
 
-
-
-
-
-
-  // if (this.value > value) { // go to left ?
-  //   if (!this.left) {  // check if left is null
-  //     // check if value of left node is value
-
-  //       // if yes, return
-  //   }
-  //   this.left.contains(value);
-  // } else if (this.value < value) {
-  //   if (!this.right) {
-  //     var newNode = BinarySearchTree(value);
-  //     this.right = newNode;
-  //   }
-  //   this.right.insert(value);
-  // }
 };
 //
 // bst prototype depthFirstLog accepts callback
 BinarySearchTree.prototype.depthFirstLog = function(callback) {
-
-  // var traverse = function(node) {
-  //   callback(node);
-  //   if
-  // }
-  // inner function, pass in node
-    // pass node into callback
-    // if node.left is not null
-      // traverse into left
-    // if node.right is not null
-      // traverse into right
   callback(this.value);
 
   if (this.left) {
@@ -85,13 +52,6 @@ BinarySearchTree.prototype.depthFirstLog = function(callback) {
     this.right.depthFirstLog(callback);
   }
   return;
-
-
-  // pass this into callback
-  // if left exists
-    // lef.depthFirstLog
-  // if right exists
-    // right deptth
 };
 
 
@@ -102,39 +62,3 @@ BinarySearchTree.prototype.depthFirstLog = function(callback) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   if (!this.left) {
-//     callback(this);
-//     this.left = newNode;
-//   }
-//   this.left.depthFirstLog(value);
-//   if (!this.right) {
-//     callback(this);
-//     this.right = newNode;
-//   }
-//   this.right.insert(value);
-// }
