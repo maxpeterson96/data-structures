@@ -29,13 +29,12 @@ Graph.prototype.contains = function(node) {
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
 // access object with value node in graph obejct and iterate through objects connections object
-for (key in this.nodes[node].connections) {
-   // delete connections object that points to node to be deleted
-  delete this.nodes[node].connections[key].connections[node];
-}
+  for (key in this.nodes[node].connections) {
+    // delete connections object that points to node to be deleted
+    delete this.nodes[node].connections[key].connections[node];
+  }
 // delete object with value node from graph object
-delete this.nodes[node];
-
+  delete this.nodes[node];
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -56,7 +55,6 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-
   if (this.hasEdge(fromNode, toNode)) {
     // delete fromNode to toNode connections
     delete this.nodes[fromNode].connections[toNode];

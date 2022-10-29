@@ -28,7 +28,6 @@ treeMethods.contains = function(target) {
     })
   }
   return contained;
-
 };
 
 // treeMethods.contains = function(target) {

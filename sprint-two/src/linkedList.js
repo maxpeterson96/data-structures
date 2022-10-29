@@ -26,12 +26,11 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     let current = list.head;
-    while (current.value !== target && current.next !== null) {
-         current = current.next
+    while (current.value !== target && current.next) {
+      current = current.next
     }
     return current.value === target
   };
-
   return list;
 };
 
